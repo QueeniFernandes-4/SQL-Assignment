@@ -1,0 +1,87 @@
+sql assignment 1
+
+
+select * from dept;
+select * from emp;
+
+1. select count(ENAME)
+    from emp;
+
+2. select count(*) 
+    from dept;
+
+3. select ename
+from emp;
+
+4. select deptno
+from dept;
+
+5.select sum(sal)
+from emp;
+
+6.select sum(comm)
+from emp;
+
+7.select job, comm from emp where comm > 0;
+
+8.select SYSDATE from emp;
+
+9.select avg(sal) from emp;
+
+10.select deptno, count(*) from emp group by deptno;
+
+11.select deptno, count(*), sum(sal) from emp group by deptno;
+
+12.select job, count(*) from emp group by job;
+
+13.select job,count(*), avg(sal) from emp group by job;
+
+14.select ename, to_char(hiredate,'dd-mon-yyy') from emp;
+
+15.select ename, deptno from emp order by deptno;
+(select * from emp order by deptno;)
+
+16.select * from emp order by job;
+
+17.select * from emp order by sal desc;
+
+18.select * from emp order by deptno, sal desc;
+
+19.select count(*) from emp where ename='------';
+
+20.select min(sal), max(sal) from emp;
+
+21.select deptno, min(sal), max(sal), avg(sal), sum(sal) from emp group by deptno order by deptno;
+
+22.select * from emp order by hiredate ;
+
+23.select * from emp order by hiredate desc;
+
+24. 
+select * from emp order by hiredate ;
+
+25.
+select to_char(hiredate,'yyyy'), deptno from emp order by hiredate desc, deptno ;
+(select * from emp order by hiredate desc, deptno ;)
+select * from emp order by  to_char(hiredate,'YYYY') desc, deptno ;
+
+26.select * from emp where sal >= 2073.21;
+
+27.select * from emp where sal <= 2073.21;
+
+28.select * from emp where sal between 2000 and 4000;
+
+29.
+select ename,max(sal) AS HIGHEST_SAL, min(sal) AS LOWEST_SAL
+from emp
+    group by ename, sal
+order by sal;
+
+30.
+select  count(*) 
+from emp
+where to_char(hiredate, 'MM') = '01'
+AND to_char(hiredate, 'YYYY') =to_char(sysdate, 'YYYY') + 1;
+
+
+
