@@ -1,0 +1,141 @@
+SQL ASSIGNMENT 2
+------------------------
+
+1. SELECT countryname, continent
+FROM countries
+ORDER BY continent ASC;
+
+2.  SELECT continent, COUNT(countryname) AS number_of_countries
+FROM countries
+GROUP BY continent
+ORDER BY continent ASC;
+
+3.
+SELECT c.countryname, cm.maker
+FROM countries c
+LEFT JOIN car_makers cm ON c.countryid = cm.country
+WHERE cm.maker IS NULL;
+
+4.SELECT c.countryname, cm.fullname
+FROM countries c
+LEFT JOIN car_makers cm ON cm.country = c.countryid
+WHERE cm.country = 4;
+
+5.
+select c.countryname, cm.fullname
+from countries c
+left join car_makers cm on cm.country = c.countryid
+where cm.country = 1  or cm.country = 3;
+
+6.
+SELECT cm.maker,c.countryname, co.continent
+FROM car_makers cm
+JOIN  countries c ON cm.country = c.countryid
+JOIN  continents co ON c.continent= co.contid
+WHERE cm.maker = 'volvo';
+
+7.select cm.fullname, md.model
+from model_details md
+join car_makers cm on md.maker = cm.id
+where cm.fullname = 'Ford Motor Company';
+
+
+8.
+SELECT c.countryname, COUNT(md.modelid) 
+FROM car_makers cm
+JOIN countries c ON cm.country = c.countryid
+JOIN model_details md ON cm.id = md.maker
+WHERE c.countryname = 'germany'
+group by c.countryname;
+
+
+9.
+SELECT c.countryname,  md.model, cm.fullname as makername, cm.id as makerid
+FROM car_makers cm
+JOIN countries c ON cm.country = c.countryid
+JOIN model_details md ON cm.id = md.maker
+WHERE c.countryname = 'japan';
+
+11.
+
+SELECT year,COUNT(ID) AS total_cars
+FROM Car_Details
+GROUP BY year
+ORDER BY total_cars DESC
+FETCH FIRST 1 ROW ONLY;
+
+
+12.SELECT year,COUNT(ID) AS total_cars
+FROM Car_Details
+GROUP BY year
+ORDER BY total_cars ASC
+FETCH FIRST 1 ROW ONLY;
+
+
+15.
+1.Continents:
+-ContID (Primary Key)
+-Continent
+
+2.Countries:
+-CountryID (Primary Key)
+-CountryName
+
+3.Continent (Foreign Key referencing Continents.ContID)
+-Car_Makers:
+-ID (Primary Key)
+-Maker
+-FullName
+-Country (Foreign Key referencing Countries.CountryID)
+    
+4.Model_Details:
+-ModelID (Primary Key)
+-Maker (Foreign Key referencing Car_Makers.ID)
+-Model
+    
+5.Car_Names:
+-ID (Primary Key)
+-Model (Foreign Key referencing Model_Details.Model)
+-Descr
+
+6.Car_Details:
+-ID (Primary Key)
+-mpg
+-cylinders
+-edispl
+-horsepower
+-weight
+-accel
+-year
+-ID (Foreign Key referencing
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
